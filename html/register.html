@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+    <title>SSL-Wallet</title>
+
+    <meta charset="utf-8">
+    <!-- <base href="/"> -->
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta property="og:image" content="path/to/image.jpg">
+    <link rel="icon" href="img/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-icon-180x180.png">
+    <meta name="theme-color" content="#000">
+
+    <link rel="stylesheet" href="css/main.min.css">
+</head>
+
+<body class="account-body login-body">
+
+<header class="header">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-2 col-md-1">
+                <div class="header-menu">
+                    <button class="header-menu__link" title="Open menu">Open menu <span></span></button>
+                </div>
+            </div>
+            <div class="col-8 col-md-10">
+                <div class="logo-wrap">
+                    <a href="index.html" class="logo" title="SSL-Wallet"><img src="img/logo.svg" alt=""></a>
+                </div>
+            </div>
+            <div class="col-2 col-md-1">
+                <div class="header-action">
+                    <ul class="lang-menu">
+                        <li class="lang-item">
+                            <a href="#">EN</a>
+                            <ul class="sub-menu">
+                                <li class="lang-item"><a href="#">RU</a></li>
+                                <li class="lang-item"><a href="#">ES</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- MAIN HTML -->
+
+<div class="main-wrap">
+    <div class="entrance-wrap login-wrap">
+        <div class="tabs__wrap tarif-wrap">
+            <div class="tarif-item active"> <img src="img/login.svg" alt="Login"> Login</div>
+            <div class="tarif-item"> <img src="img/email.svg" alt="E-mail"> E-mail</div>
+            <div class="tarif-item"> <img src="img/phone.svg" alt="Phone"> Phone</div>
+        </div>
+        <div class="login-panel">
+            <a href="entrance.html" class="close-tab" title="Close login"></a>
+            <div class="title-big">Register</div>
+            <form action="" class="login-form">
+                <input type="email" name="username" placeholder="E-mail" class="registerEmail" required>
+                <input type="password" name="password" placeholder="Password" class="registerPass" required>
+                <div style="color: #FF185F; text-align: center; margin-bottom: 5px" class="registerError"></div>
+                <button class="btn primary" id="registerBtn">Register</button>
+                <div class="forget-password">
+                    <a href="login.html" class="link" title="Remember password">Login</a>
+                </div>
+            </form>
+        </div>
+
+        <div class="entrance-link__account">
+            <div class="title">Link account</div>
+            <div class="entrance-link__account--wrap">
+                <a href="#" class="entrance-link__account--item fb" title="Facebook"><img src="img/facebook.svg" alt="Facebook"></a>
+                <a href="#" class="entrance-link__account--item inst" title="Instagram"><img src="img/instagram.svg" alt="Instagram"></a>
+                <a href="#" class="entrance-link__account--item vk" title="Vk"><img src="img/vk.svg" alt="vk"></a>
+                <a href="#" class="entrance-link__account--item wa" title="Whatsapp"><img src="img/wa.svg" alt="Whatsapp"></a>
+                <a href="#" class="entrance-link__account--item youtube" title="Youtube"><img src="img/youtube.svg" alt="Youtube"></a>
+                <a href="#" class="entrance-link__account--item yahoo" title="Yahoo"><img src="img/yahoo.svg" alt="Yahoo"></a>
+                <a href="#" class="entrance-link__account--item pinterest" title="Pinterest"><img src="img/pinterest.svg" alt="Pinterest"></a>
+                <a href="#" class="entrance-link__account--item vimeo" title="Vimeo"><img src="img/vimeo.svg" alt="vimeo"></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- end MAIN HTML -->
+
+<footer class="footer">
+
+</footer>
+
+
+<script defer async src="js/scripts.min.js"></script>
+<script src="js/requests/register.js"></script>
+</body>
+</html>

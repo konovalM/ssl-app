@@ -1,0 +1,421 @@
+<include src="components/header-index.html"></include>
+
+<!-- MAIN HTML -->
+
+<div class="main-wrap">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-3 col-lg-2">
+				<button class="btn add-certificate__btn" title="Add certificate" id="add-certificate__btn">New certificate</button>
+			</div>
+			<div class="col-sm-9 col-lg-10">
+				<form action="" class="search-form">
+					<input type="search" name="s" placeholder="Search..." id="searchInput">
+					<button class="btn primary search-btn" title="Search" id="searchBtn">
+						<svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M18.4654 15.8805L12.9037 10.3187C14.4028 7.68351 14.0303 4.26451 11.7852 2.01935C9.09264 -0.673115 4.71174 -0.673115 2.01933 2.01935C-0.673085 4.71181 -0.673133 9.09271 2.01933 11.7852C4.26444 14.0303 7.68349 14.4028 10.3187 12.9037L15.8804 18.4655C16.5931 19.1782 17.7528 19.1781 18.4654 18.4655C19.1782 17.7529 19.1782 16.5932 18.4654 15.8805ZM10.4096 10.4097C8.47562 12.3438 5.32881 12.3438 3.39474 10.4097C1.46071 8.47569 1.46071 5.32883 3.39474 3.3948C5.32881 1.46078 8.47562 1.46078 10.4096 3.3948C12.3437 5.32883 12.3437 8.47574 10.4096 10.4097Z" fill="white"/>
+						</svg>
+					</button>
+				</form>
+			</div>
+		</div>
+
+		<div class="sertificates-wrap">
+			<div class="tabs__wrap">
+				<button type="button" class="tabs__link sertificates-tab active" data-target="drafts">Drafts <span class="countDraftCertificates"></span></button>
+				<button type="button" class="tabs__link sertificates-tab" data-target="issued">Issued <span class="countIssuedCertificates"></span></button>
+				<button type="button" class="tabs__link sertificates-tab" data-target="expired">Expired <span class="countExpiredCertificates"></span></button>
+				<button type="button" class="tabs__link sertificates-tab" data-target="canceled">Canceled</button>
+			</div>
+			<div class="tabs__panel active" id="drafts">
+				<div class="sertificates-table">
+					<div class="sertificates-table__row head draftsCertificates">
+						<div class="sertificates-table__item domains">Domains</div>
+						<div class="sertificates-table__item type">SSL type</div>
+						<div class="sertificates-table__item cost">Period/Cost</div>
+						<div class="sertificates-table__item action"></div>
+					</div>
+					<div class="createNewCertificate"><div class="open-arrow"></div>
+						<div class="sertificates-table__item domains d-flex d-sm-none">domain.ru</div>
+						<div class="sertificates-table__item domains input">
+							<input type="text" name="domains" placeholder="Domains" id="newDomain">
+						</div>
+						<div class="sertificates-table__item type">
+							<select name="type" id="selectChoose">
+								<option value="simple" selected>Simple DV</option>
+								<option value="wildcard">WildCard</option>
+								<option value="multidomain">MultiDomain</option>
+							</select>
+						</div>
+						<div class="sertificates-table__item cost">
+							<select name="type" id="selectDuration">
+								<option value="1-year" selected>1-year</option>
+								<option value="2-year">2-year</option>
+								<option value="3-year">3-year</option>
+							</select>
+						</div>
+						<div class="sertificates-table__item action"><button class="btn-invert disabled" id="createNewCertificate">issue</button></div>
+					</div>
+					<!--<div class="sertificates-table__row"><div class="open-arrow"></div>
+						<div class="sertificates-table__item domains">domain.ru</div>
+						<div class="sertificates-table__item type"><div class="d-block d-sm-none">SSL type</div><span>Simple DV</span></div>
+						<div class="sertificates-table__item cost"><div class="d-block d-sm-none">Period/Cost</div><span>1-year / 5.00 $</span></div>
+						<div class="sertificates-table__item action"><a href="settings.html" class="btn-invert">issue</a></div>
+					</div>
+					<div class="sertificates-table__row"><div class="open-arrow"></div>
+						<div class="sertificates-table__item domains">nametwo.com</div>
+						<div class="sertificates-table__item type"><div class="d-block d-sm-none">SSL type</div><span>Simple DV</span></div>
+						<div class="sertificates-table__item cost"><div class="d-block d-sm-none">Period/Cost</div><span>2-year / 10.00 $</span></div>
+						<div class="sertificates-table__item action"><a href="validation.html" class="btn-invert primary">validation</a></div>
+					</div>
+					<div class="sertificates-table__row"><div class="open-arrow"></div>
+						<div class="sertificates-table__item domains">anothername.net</div>
+						<div class="sertificates-table__item type"><div class="d-block d-sm-none">SSL type</div><span>Simple DV</span></div>
+						<div class="sertificates-table__item cost"><div class="d-block d-sm-none">Period/Cost</div><span>3-year / 15.00 $</span></div>
+						<div class="sertificates-table__item action"><a href="validation.html" class="btn-invert">issue</a></div>
+					</div>
+					<div class="sertificates-table__row"><div class="open-arrow"></div>
+						<div class="sertificates-table__item domains">*.name.pro</div>
+						<div class="sertificates-table__item type"><div class="d-block d-sm-none">SSL type</div><span>WildCard</span></div>
+						<div class="sertificates-table__item cost"><div class="d-block d-sm-none">Period/Cost</div><span>1-year / 30.00 $</span></div>
+						<div class="sertificates-table__item action"><a href="validation.html" class="btn-invert primary">validation</a></div>
+					</div>
+					<div class="sertificates-table__row"><div class="open-arrow"></div>
+						<div class="sertificates-table__item domains">firstdomain.ru...</div>
+						<div class="sertificates-table__item type"><div class="d-block d-sm-none">SSL type</div><span>MultiDomain</span></div>
+						<div class="sertificates-table__item cost"><div class="d-block d-sm-none">Period/Cost</div><span>1-year / 40.00 $</span></div>
+						<div class="sertificates-table__item action"><a href="validation.html" class="btn-invert primary">validation</a></div>
+					</div>
+					<div class="sertificates-table__row"><div class="open-arrow"></div>
+						<div class="sertificates-table__item domains">nametwo.com</div>
+						<div class="sertificates-table__item type"><div class="d-block d-sm-none">SSL type</div><span>Simple DV</span></div>
+						<div class="sertificates-table__item cost"><div class="d-block d-sm-none">Period/Cost</div><span>2-year / 10.00 $</span></div>
+						<div class="sertificates-table__item action"><a href="validation.html" class="btn-invert primary">validation</a></div>
+					</div>
+					<div class="sertificates-table__row"><div class="open-arrow"></div>
+						<div class="sertificates-table__item domains">anothername.net</div>
+						<div class="sertificates-table__item type"><div class="d-block d-sm-none">SSL type</div><span>Simple DV</span></div>
+						<div class="sertificates-table__item cost"><div class="d-block d-sm-none">Period/Cost</div><span>3-year / 15.00 $</span></div>
+						<div class="sertificates-table__item action"><a href="validation.html" class="btn-invert">issue</a></div>
+					</div>
+					<div class="sertificates-table__row"><div class="open-arrow"></div>
+						<div class="sertificates-table__item domains">*.name.pro</div>
+						<div class="sertificates-table__item type"><div class="d-block d-sm-none">SSL type</div><span>WildCard</span></div>
+						<div class="sertificates-table__item cost"><div class="d-block d-sm-none">Period/Cost</div><span>1-year / 30.00 $</span></div>
+						<div class="sertificates-table__item action"><a href="validation.html" class="btn-invert primary">validation</a></div>
+					</div>
+					<div class="sertificates-table__row"><div class="open-arrow"></div>
+						<div class="sertificates-table__item domains">firstdomain.ru...</div>
+						<div class="sertificates-table__item type"><div class="d-block d-sm-none">SSL type</div><span>MultiDomain</span></div>
+						<div class="sertificates-table__item cost"><div class="d-block d-sm-none">Period/Cost</div><span>1-year / 40.00 $</span></div>
+						<div class="sertificates-table__item action"><a href="validation.html" class="btn-invert primary">validation</a></div>
+					</div>-->
+				</div>
+
+				<div class="sertificates-nav">
+					<div class="navigation">
+						<a href="#" class="btn-invert prev" title="Previous page">Previous</a>
+						<div class="navigation-items">1 of 3</div>
+						<a href="#" class="btn-invert next" title="Next page">next</a>
+					</div>
+					<div class="count">Items per page: <span>5</span></div>
+				</div>
+			</div>
+			<div class="tabs__panel" id="issued">
+				<div class="sertificates-table lg">
+					<div class="sertificates-table__row head issuedCertificates">
+						<div class="sertificates-table__item domains">Domains</div>
+						<div class="sertificates-table__item type">SSL type</div>
+						<div class="sertificates-table__item cost">Expires</div>
+						<div class="sertificates-table__item auto">Auto-prolongate</div>
+						<div class="sertificates-table__item action"></div>
+					</div>
+					<!--<div class="sertificates-table__row"><div class="open-arrow"></div>
+						<div class="sertificates-table__item domains">domain.ru</div>
+						<div class="sertificates-table__item type"><div class="d-block d-sm-none">SSL type</div><span>Simple DV</span></div>
+						<div class="sertificates-table__item cost"><div class="d-block d-sm-none">Expires</div><span>12.03.2022</span></div>
+						<div class="sertificates-table__item auto">
+							<div class="d-block d-sm-none">Auto-prolongate</div>
+							<div class="sertificates-prolongate">
+								<input type="checkbox" name="auto-prolongate" checked>
+								<div class="sertificates-prolongate__wrap"></div>
+							</div>
+						</div>
+						<div class="sertificates-table__item action"><a href="validation.html" class="btn-invert">view</a></div>
+					</div>
+					<div class="sertificates-table__row"><div class="open-arrow"></div>
+						<div class="sertificates-table__item domains">nametwo.com</div>
+						<div class="sertificates-table__item type"><div class="d-block d-sm-none">SSL type</div><span>Simple DV</span></div>
+						<div class="sertificates-table__item cost"><div class="d-block d-sm-none">Expires</div><span>12.03.2022</span></div>
+						<div class="sertificates-table__item auto">
+							<div class="d-block d-sm-none">Auto-prolongate</div>
+							<div class="sertificates-prolongate">
+								<input type="checkbox" name="auto-prolongate">
+								<div class="sertificates-prolongate__wrap"></div>
+							</div>
+						</div>
+						<div class="sertificates-table__item action"><a href="#" class="btn-invert renew" title="renew page">renew</a></div>
+					</div>
+					<div class="sertificates-table__row"><div class="open-arrow"></div>
+						<div class="sertificates-table__item domains">anothername.net</div>
+						<div class="sertificates-table__item type"><div class="d-block d-sm-none">SSL type</div><span>Simple DV</span></div>
+						<div class="sertificates-table__item cost"><div class="d-block d-sm-none">Expires</div><span>12.03.2022</span></div>
+						<div class="sertificates-table__item auto">
+							<div class="d-block d-sm-none">Auto-prolongate</div>
+							<div class="sertificates-prolongate">
+								<input type="checkbox" name="auto-prolongate" checked>
+								<div class="sertificates-prolongate__wrap"></div>
+							</div>
+						</div>
+						<div class="sertificates-table__item action"><a href="validation.html" class="btn-invert">view</a></div>
+					</div>
+					<div class="sertificates-table__row"><div class="open-arrow"></div>
+						<div class="sertificates-table__item domains">*.name.pro</div>
+						<div class="sertificates-table__item type"><div class="d-block d-sm-none">SSL type</div><span>WildCard</span></div>
+						<div class="sertificates-table__item cost"><div class="d-block d-sm-none">Expires</div><span>12.03.2022</span></div>
+						<div class="sertificates-table__item auto">
+							<div class="d-block d-sm-none">Auto-prolongate</div>
+							<div class="sertificates-prolongate">
+								<input type="checkbox" name="auto-prolongate">
+								<div class="sertificates-prolongate__wrap"></div>
+							</div>
+						</div>
+						<div class="sertificates-table__item action"><a href="#" class="btn-invert renew" title="renew page">renew</a></div>
+					</div>
+					<div class="sertificates-table__row"><div class="open-arrow"></div>
+						<div class="sertificates-table__item domains">firstdomain.ru...</div>
+						<div class="sertificates-table__item type"><div class="d-block d-sm-none">SSL type</div><span>MultiDomain</span></div>
+						<div class="sertificates-table__item cost"><div class="d-block d-sm-none">Expires</div><span>12.03.2022</span></div>
+						<div class="sertificates-table__item auto">
+							<div class="d-block d-sm-none">Auto-prolongate</div>
+							<div class="sertificates-prolongate">
+								<input type="checkbox" name="auto-prolongate" checked>
+								<div class="sertificates-prolongate__wrap"></div>
+							</div>
+						</div>
+						<div class="sertificates-table__item action"><a href="#" class="btn-invert renew" title="renew page">renew</a></div>
+					</div>
+					<div class="sertificates-table__row"><div class="open-arrow"></div>
+						<div class="sertificates-table__item domains">nametwo.com</div>
+						<div class="sertificates-table__item type"><div class="d-block d-sm-none">SSL type</div><span>Simple DV</span></div>
+						<div class="sertificates-table__item cost"><div class="d-block d-sm-none">Expires</div><span>12.03.2022</span></div>
+						<div class="sertificates-table__item auto">
+							<div class="d-block d-sm-none">Auto-prolongate</div>
+							<div class="sertificates-prolongate">
+								<input type="checkbox" name="auto-prolongate">
+								<div class="sertificates-prolongate__wrap"></div>
+							</div>
+						</div>
+						<div class="sertificates-table__item action"><a href="#" class="btn-invert renew" title="renew page">renew</a></div>
+					</div>
+					<div class="sertificates-table__row"><div class="open-arrow"></div>
+						<div class="sertificates-table__item domains">anothername.net</div>
+						<div class="sertificates-table__item type"><div class="d-block d-sm-none">SSL type</div><span>Simple DV</span></div>
+						<div class="sertificates-table__item cost"><div class="d-block d-sm-none">Expires</div><span>12.03.2022</span></div>
+						<div class="sertificates-table__item auto">
+							<div class="d-block d-sm-none">Auto-prolongate</div>
+							<div class="sertificates-prolongate">
+								<input type="checkbox" name="auto-prolongate" checked>
+								<div class="sertificates-prolongate__wrap"></div>
+							</div>
+						</div>
+						<div class="sertificates-table__item action"><a href="validation.html" class="btn-invert">view</a></div>
+					</div>
+					<div class="sertificates-table__row"><div class="open-arrow"></div>
+						<div class="sertificates-table__item domains">*.name.pro</div>
+						<div class="sertificates-table__item type"><div class="d-block d-sm-none">SSL type</div><span>WildCard</span></div>
+						<div class="sertificates-table__item cost"><div class="d-block d-sm-none">Expires</div><span>12.03.2022</span></div>
+						<div class="sertificates-table__item auto">
+							<div class="d-block d-sm-none">Auto-prolongate</div>
+							<div class="sertificates-prolongate">
+								<input type="checkbox" name="auto-prolongate">
+								<div class="sertificates-prolongate__wrap"></div>
+							</div>
+						</div>
+						<div class="sertificates-table__item action"><a href="#" class="btn-invert renew" title="renew page">renew</a></div>
+					</div>
+					<div class="sertificates-table__row"><div class="open-arrow"></div>
+						<div class="sertificates-table__item domains">firstdomain.ru...</div>
+						<div class="sertificates-table__item type"><div class="d-block d-sm-none">SSL type</div><span>MultiDomain</span></div>
+						<div class="sertificates-table__item cost"><div class="d-block d-sm-none">Expires</div><span>12.03.2022</span></div>
+						<div class="sertificates-table__item auto">
+							<div class="d-block d-sm-none">Auto-prolongate</div>
+							<div class="sertificates-prolongate">
+								<input type="checkbox" name="auto-prolongate" checked>
+								<div class="sertificates-prolongate__wrap"></div>
+							</div>
+						</div>
+						<div class="sertificates-table__item action"><a href="#" class="btn-invert renew" title="renew page">renew</a></div>
+					</div>-->
+				</div>
+
+				<div class="sertificates-nav">
+					<div class="navigation">
+						<a href="#" class="btn-invert prev" title="Previous page">Previous</a>
+						<div class="navigation-items">1 of 3</div>
+						<a href="#" class="btn-invert next" title="Next page">next</a>
+					</div>
+					<div class="count">Items per page: <span>5</span></div>
+				</div>
+			</div>
+			<div class="tabs__panel" id="expired">
+				<div class="sertificates-table">
+					<div class="sertificates-table__row head expiredCertificates">
+						<div class="sertificates-table__item domains">Domains</div>
+						<div class="sertificates-table__item type">SSL type</div>
+						<div class="sertificates-table__item cost">Experis</div>
+						<div class="sertificates-table__item action"></div>
+					</div>
+					<!--<div class="sertificates-table__row"><div class="open-arrow"></div>
+						<div class="sertificates-table__item domains">domain.ru</div>
+						<div class="sertificates-table__item type"><div class="d-block d-sm-none">SSL type</div><span>Simple DV</span></div>
+						<div class="sertificates-table__item cost"><div class="d-block d-sm-none">Expires</div><span>12.03.2022</span></div>
+						<div class="sertificates-table__item action"><a href="#" class="btn-invert renew" title="renew page">renew</a></div>
+					</div>
+					<div class="sertificates-table__row"><div class="open-arrow"></div>
+						<div class="sertificates-table__item domains">nametwo.com</div>
+						<div class="sertificates-table__item type"><div class="d-block d-sm-none">SSL type</div><span>Simple DV</span></div>
+						<div class="sertificates-table__item cost"><div class="d-block d-sm-none">Expires</div><span>12.03.2022</span></div>
+						<div class="sertificates-table__item action"><a href="#" class="btn-invert renew" title="renew page">renew</a></div>
+					</div>
+					<div class="sertificates-table__row"><div class="open-arrow"></div>
+						<div class="sertificates-table__item domains">anothername.net</div>
+						<div class="sertificates-table__item type"><div class="d-block d-sm-none">SSL type</div><span>Simple DV</span></div>
+						<div class="sertificates-table__item cost"><div class="d-block d-sm-none">Expires</div><span>12.03.2022</span></div>
+						<div class="sertificates-table__item action"><a href="#" class="btn-invert renew" title="renew page">renew</a></div>
+					</div>
+					<div class="sertificates-table__row"><div class="open-arrow"></div>
+						<div class="sertificates-table__item domains">*.name.pro</div>
+						<div class="sertificates-table__item type"><div class="d-block d-sm-none">SSL type</div><span>WildCard</span></div>
+						<div class="sertificates-table__item cost"><div class="d-block d-sm-none">Expires</div><span>12.03.2022</span></div>
+						<div class="sertificates-table__item action"><a href="#" class="btn-invert renew" title="renew page">renew</a></div>
+					</div>
+					<div class="sertificates-table__row"><div class="open-arrow"></div>
+						<div class="sertificates-table__item domains">firstdomain.ru...</div>
+						<div class="sertificates-table__item type"><div class="d-block d-sm-none">SSL type</div><span>MultiDomain</span></div>
+						<div class="sertificates-table__item cost"><div class="d-block d-sm-none">Expires</div><span>12.03.2022</span></div>
+						<div class="sertificates-table__item action"><a href="#" class="btn-invert renew" title="renew page">renew</a></div>
+					</div>
+					<div class="sertificates-table__row"><div class="open-arrow"></div>
+						<div class="sertificates-table__item domains">nametwo.com</div>
+						<div class="sertificates-table__item type"><div class="d-block d-sm-none">SSL type</div><span>Simple DV</span></div>
+						<div class="sertificates-table__item cost"><div class="d-block d-sm-none">Expires</div><span>12.03.2022</span></div>
+						<div class="sertificates-table__item action"><a href="#" class="btn-invert renew" title="renew page">renew</a></div>
+					</div>
+					<div class="sertificates-table__row"><div class="open-arrow"></div>
+						<div class="sertificates-table__item domains">anothername.net</div>
+						<div class="sertificates-table__item type"><div class="d-block d-sm-none">SSL type</div><span>Simple DV</span></div>
+						<div class="sertificates-table__item cost"><div class="d-block d-sm-none">Expires</div><span>12.03.2022</span></div>
+						<div class="sertificates-table__item action"><a href="#" class="btn-invert renew" title="renew page">renew</a></div>
+					</div>
+					<div class="sertificates-table__row"><div class="open-arrow"></div>
+						<div class="sertificates-table__item domains">*.name.pro</div>
+						<div class="sertificates-table__item type"><div class="d-block d-sm-none">SSL type</div><span>WildCard</span></div>
+						<div class="sertificates-table__item cost"><div class="d-block d-sm-none">Expires</div><span>12.03.2022</span></div>
+						<div class="sertificates-table__item action"><a href="#" class="btn-invert renew" title="renew page">renew</a></div>
+					</div>
+					<div class="sertificates-table__row"><div class="open-arrow"></div>
+						<div class="sertificates-table__item domains">firstdomain.ru...</div>
+						<div class="sertificates-table__item type"><div class="d-block d-sm-none">SSL type</div><span>MultiDomain</span></div>
+						<div class="sertificates-table__item cost"><div class="d-block d-sm-none">Expires</div><span>12.03.2022</span></div>
+						<div class="sertificates-table__item action"><a href="#" class="btn-invert renew" title="renew page">renew</a></div>
+					</div>-->
+				</div>
+
+				<div class="sertificates-nav">
+					<div class="navigation">
+						<a href="#" class="btn-invert prev" title="Previous page">Previous</a>
+						<div class="navigation-items">1 of 3</div>
+						<a href="#" class="btn-invert next" title="Next page">next</a>
+					</div>
+					<div class="count">Items per page: <span>5</span></div>
+				</div>
+			</div>
+			<div class="tabs__panel" id="canceled">
+				<div class="sertificates-table">
+					<div class="sertificates-table__row head canceledCertificates">
+						<div class="sertificates-table__item domains">Domains</div>
+						<div class="sertificates-table__item type">SSL type</div>
+						<div class="sertificates-table__item cost">Canceled</div>
+						<div class="sertificates-table__item action"></div>
+					</div>
+					<!--<div class="sertificates-table__row"><div class="open-arrow"></div>
+						<div class="sertificates-table__item domains">domain.ru</div>
+						<div class="sertificates-table__item type"><div class="d-block d-sm-none">SSL type</div><span>Simple DV</span></div>
+						<div class="sertificates-table__item cost"><div class="d-block d-sm-none">Expires</div><span>12.03.2022</span></div>
+						<div class="sertificates-table__item action"><button type="button" class="btn-invert">copy hash</button></div>
+					</div>
+					<div class="sertificates-table__row"><div class="open-arrow"></div>
+						<div class="sertificates-table__item domains">nametwo.com</div>
+						<div class="sertificates-table__item type"><div class="d-block d-sm-none">SSL type</div><span>Simple DV</span></div>
+						<div class="sertificates-table__item cost"><div class="d-block d-sm-none">Expires</div><span>12.03.2022</span></div>
+						<div class="sertificates-table__item action"><button type="button" class="btn-invert">copy hash</button></div>
+					</div>
+					<div class="sertificates-table__row"><div class="open-arrow"></div>
+						<div class="sertificates-table__item domains">anothername.net</div>
+						<div class="sertificates-table__item type"><div class="d-block d-sm-none">SSL type</div><span>Simple DV</span></div>
+						<div class="sertificates-table__item cost"><div class="d-block d-sm-none">Expires</div><span>12.03.2022</span></div>
+						<div class="sertificates-table__item action"><button type="button" class="btn-invert">copy hash</button></div>
+					</div>
+					<div class="sertificates-table__row"><div class="open-arrow"></div>
+						<div class="sertificates-table__item domains">*.name.pro</div>
+						<div class="sertificates-table__item type"><div class="d-block d-sm-none">SSL type</div><span>WildCard</span></div>
+						<div class="sertificates-table__item cost"><div class="d-block d-sm-none">Expires</div><span>12.03.2022</span></div>
+						<div class="sertificates-table__item action"><button type="button" class="btn-invert">copy hash</button></div>
+					</div>
+					<div class="sertificates-table__row"><div class="open-arrow"></div>
+						<div class="sertificates-table__item domains">firstdomain.ru...</div>
+						<div class="sertificates-table__item type"><div class="d-block d-sm-none">SSL type</div><span>MultiDomain</span></div>
+						<div class="sertificates-table__item cost"><div class="d-block d-sm-none">Expires</div><span>12.03.2022</span></div>
+						<div class="sertificates-table__item action"><button type="button" class="btn-invert">copy hash</button></div>
+					</div>
+					<div class="sertificates-table__row"><div class="open-arrow"></div>
+						<div class="sertificates-table__item domains">nametwo.com</div>
+						<div class="sertificates-table__item type"><div class="d-block d-sm-none">SSL type</div><span>Simple DV</span></div>
+						<div class="sertificates-table__item cost"><div class="d-block d-sm-none">Expires</div><span>12.03.2022</span></div>
+						<div class="sertificates-table__item action"><button type="button" class="btn-invert">copy hash</button></div>
+					</div>
+					<div class="sertificates-table__row"><div class="open-arrow"></div>
+						<div class="sertificates-table__item domains">anothername.net</div>
+						<div class="sertificates-table__item type"><div class="d-block d-sm-none">SSL type</div><span>Simple DV</span></div>
+						<div class="sertificates-table__item cost"><div class="d-block d-sm-none">Expires</div><span>12.03.2022</span></div>
+						<div class="sertificates-table__item action"><button type="button" class="btn-invert">copy hash</button></div>
+					</div>
+					<div class="sertificates-table__row"><div class="open-arrow"></div>
+						<div class="sertificates-table__item domains">*.name.pro</div>
+						<div class="sertificates-table__item type"><div class="d-block d-sm-none">SSL type</div><span>WildCard</span></div>
+						<div class="sertificates-table__item cost"><div class="d-block d-sm-none">Expires</div><span>12.03.2022</span></div>
+						<div class="sertificates-table__item action"><button type="button" class="btn-invert">copy hash</button></div>
+					</div>
+					<div class="sertificates-table__row"><div class="open-arrow"></div>
+						<div class="sertificates-table__item domains">firstdomain.ru...</div>
+						<div class="sertificates-table__item type"><div class="d-block d-sm-none">SSL type</div><span>MultiDomain</span></div>
+						<div class="sertificates-table__item cost"><div class="d-block d-sm-none">Expires</div><span>12.03.2022</span></div>
+						<div class="sertificates-table__item action"><button type="button" class="btn-invert">copy hash</button></div>
+					</div>-->
+				</div>
+
+				<div class="sertificates-nav">
+					<div class="navigation">
+						<a href="#" class="btn-invert prev" title="Previous page">Previous</a>
+						<div class="navigation-items">1 of 3</div>
+						<a href="#" class="btn-invert next" title="Next page">next</a>
+					</div>
+					<div class="count">Items per page: <span>5</span></div>
+				</div>
+			</div>
+		</div>
+	</div>					
+</div>
+
+<!-- end MAIN HTML -->
+
+<footer class="footer">
+
+</footer>
+
+
+<script defer async src="js/scripts.min.js"></script>
+<script src="js/requests/index.js"></script>
+</body>
+</html>
