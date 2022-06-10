@@ -1,0 +1,72 @@
+.registrationPopup{
+    animation-name: registrationSuccess;
+    animation-duration: 1s;
+    width: 430px;
+    height: 128px;
+    background-color: #1CC800;
+    position: fixed;
+    left: 50%;
+    top: 100px;
+    transform: translateX(-50%);
+    border-radius: 100px;
+    z-index: 1000;
+}
+.registrationText{
+    font-size: 16px;
+    line-height: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    margin-top: 10px;
+    font-weight: 700;
+}
+.cross{
+    width: 17px;
+    height: 17px;
+    background: url("data:image/svg+xml,%3Csvg width='17' height='17' viewBox='0 0 17 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.3274 8.49838L16.6183 2.20951C17.1229 1.70485 17.1229 0.886394 16.6183 0.378497C16.1138 -0.126166 15.2955 -0.126166 14.7877 0.378497L8.49677 6.6706L2.20909 0.378497C1.70453 -0.126166 0.886225 -0.126166 0.378425 0.378497C-0.126142 0.883159 -0.126142 1.70162 0.378425 2.20951L6.66933 8.50162L0.378425 14.7905C-0.126142 15.2951 -0.126142 16.1136 0.378425 16.6215C0.882991 17.1262 1.70129 17.1262 2.20909 16.6215L8.5 10.3294L14.7909 16.6215C15.2955 17.1262 16.1138 17.1262 16.6216 16.6215C17.1261 16.1168 17.1261 15.2984 16.6216 14.7905L10.3274 8.49838Z' fill='white'/%3E%3C/svg%3E") center/contain no-repeat;
+    margin: 25px auto 0;
+    cursor: pointer;
+}
+.createNewCertificate{
+    text-align: center;
+    display: none;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+}
+.createNewCertificateActive{
+    display: flex;
+}
+.deleteCertificateBtn{
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 25px;
+}
+.relative{
+    position: relative;
+}
+
+
+@media screen and (max-width: 550px){
+    .cross{
+        margin: 10px auto 0;
+    }
+    .registrationPopup{
+        width: 300px;
+        height: 99px;
+    }
+    .registrationText{
+        max-width: 234px;
+        font-size: 16px;
+        line-height: 26px;
+        letter-spacing: 0.1em;
+        margin: 10px auto 0;
+    }
+}

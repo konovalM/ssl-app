@@ -1,0 +1,144 @@
+.header{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 20px;
+	border-top: 1px solid @border;
+	border-bottom: 1px solid @border;
+	z-index: 9;
+	&-menu{
+		&__link{
+			background-color: transparent;
+			padding: 0;
+			display: flex;
+			-webkit-align-items: center;
+			        align-items: center;
+			-webkit-justify-content: center;
+			        justify-content: center;
+			-webkit-flex-wrap: wrap;
+			    -ms-flex-wrap: wrap;
+			        flex-wrap: wrap;
+			border: none;
+			border-left: 1px solid @border;
+			border-right: 1px solid @border;
+			width: 40px;
+			height: 40px;
+			font-size: 0;
+			cursor: pointer;
+			span{
+				width: 19px;
+				height: 2px;
+				position: relative;
+				background: @orange;
+				transition: all .3s ease;
+				display: block;
+				left: -4px;
+				&::before,
+				&::after{
+					content: "";
+					display: block;
+					position: absolute;
+					height: 2px;
+					width: 100%;
+					background: #FF185F;
+					left: 7px;
+					transition: all .3s ease;
+				}
+				&::before{
+					top: -7px;
+				}
+				&::after{
+					bottom: -7px;
+				}
+			}
+			&:hover{
+				span{
+					left: 0;
+					&::before,
+					&::after{
+						left: 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+.logo{
+	display: block;
+	&-wrap{
+		max-width: 220px;
+		margin: auto;
+	}
+	img{
+		display: block;
+	}
+}
+
+.sub-menu{
+	display: none;
+}
+
+.lang{
+	&-menu{
+		border-left: 1px solid @border;
+		border-right: 1px solid @border;
+		width: 40px;
+		height: 40px;
+		display: flex;
+		-webkit-align-items: center;
+		        align-items: center;
+		-webkit-justify-content: center;
+		        justify-content: center;
+		position: relative;
+		margin-left: auto;
+	}
+	&-item{
+		position: relative;
+		a{
+			color: @white;
+			font-weight: 500;
+		}
+	}
+}
+
+.myaccount-link{
+	width: 40px;
+	height: 40px;
+	border-left: 1px solid @border;
+	border-right: 1px solid @border;
+	display: flex;
+	-webkit-align-items: center;
+	        align-items: center;
+	-webkit-justify-content: center;
+	        justify-content: center;
+	margin-left: auto;
+	font-size: 0;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 14px;
+	background-image: url("data:image/svg+xml,%3Csvg width='13' height='17' viewBox='0 0 13 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.9836 17C11.521 17 11.1475 16.6265 11.1475 16.1639C11.1475 13.9344 9.02115 12.1229 6.40984 12.1229C3.79852 12.1229 1.67213 13.9344 1.67213 16.1639C1.67213 16.6265 1.29869 17 0.836066 17C0.373443 17 0 16.6265 0 16.1639C0 13.0147 2.87607 10.4508 6.40984 10.4508C9.94361 10.4508 12.8197 13.0147 12.8197 16.1639C12.8197 16.6265 12.4462 17 11.9836 17Z' fill='white'/%3E%3Cpath d='M6.40982 9.47541C3.79851 9.47541 1.67212 7.34902 1.67212 4.7377C1.67212 2.12639 3.79851 0 6.40982 0C9.02114 0 11.1475 2.12639 11.1475 4.7377C11.1475 7.34902 9.02114 9.47541 6.40982 9.47541ZM6.40982 1.67213C4.71818 1.67213 3.34425 3.04607 3.34425 4.7377C3.34425 6.42934 4.71818 7.80328 6.40982 7.80328C8.10146 7.80328 9.4754 6.42934 9.4754 4.7377C9.4754 3.04607 8.10146 1.67213 6.40982 1.67213Z' fill='white'/%3E%3C/svg%3E");
+	background-color: transparent;
+}
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #000;
+	min-width: 100px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+}
+.dropdown-content a {
+	color: #fff;
+	padding: 5px 5px;
+	text-decoration: none;
+	display: block;
+}
+.dropdown-content a:hover {
+	background-color: #171A1E;
+}
+.dropdown:hover .dropdown-content {display: block;}
